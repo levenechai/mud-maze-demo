@@ -88,7 +88,7 @@ const Plane = () => {
       </mesh>
 
       {/* Walls */}
-      {walls.map((wall, index) => (
+      {walls.map((wall, id) => (
         <mesh key={wall.id} position={wall.position}>
         <boxGeometry args={wall.size} />
         <meshStandardMaterial color={wall.colour} />
@@ -109,16 +109,16 @@ const Player = (props: ThreeElements["mesh"] & { color: Color }) => {
   );
 };
 
-const Scene = ({ points, setPoints, collectables, setCollectables }) => {
+const Scene = () => {
 
   const {
     components: { Position },
     network: { playerEntity },
+    systemCalls: { spawn },
   } = useMUD();
 
 
-
-  const playerPosition = useComponentValue(Position, playerEntity);
+  const playerPosition = useComponentValue(Position, playerEntity) || { x: -2, y: -2, z: -2 };
   const players = useEntityQuery([Has(Position)]).map((entity) => {
     const position = getComponentValueStrict(Position, entity);
     return {
@@ -126,8 +126,9 @@ const Scene = ({ points, setPoints, collectables, setCollectables }) => {
       position,
     };
   });
+
   
-  useKeyboardMovement(playerPosition, collectables, setCollectables);
+  useKeyboardMovement();
 
   
   useThree(({ camera }) => {
@@ -135,7 +136,7 @@ const Scene = ({ points, setPoints, collectables, setCollectables }) => {
       // camera.position.set(playerPosition.x - 5, playerPosition.y + 5, playerPosition.z + 5);
       camera.position.set(playerPosition.x - 5, playerPosition.y + 15, playerPosition.z + 5);
     } else {
-      camera.position.set(-5, 5, 5);
+      camera.position.set(-5, 15, 5);
     }
     camera.rotation.order = "YXZ";
     camera.rotation.y = -Math.PI / 4;
@@ -143,8 +144,8 @@ const Scene = ({ points, setPoints, collectables, setCollectables }) => {
   });
 
   useThree(({ camera }) => {
-    if (playerPosition && playerPosition.x === 10 && playerPosition.z === 0) {
-      alert("You Win!");
+    if (playerPosition && playerPosition.x === 9 && playerPosition.z === 0) {
+      alert("Congratulations!");
     }
   });
 
@@ -171,7 +172,7 @@ const Directions = () => {
   return (
     <>
       <p>
-        You are a purple block moving around the maze! To move, use <b>W</b>, <b>A</b>, <b>S</b>, and <b>D</b>.
+        To initialise your position, use <b>W</b>, <b>A</b>, <b>S</b>, and <b>D</b> to move! Enjoy the maze. :)
       </p>
     </>
   );
@@ -250,4 +251,4 @@ export const App = () => {
       </Canvas>
     </>
   );
-};
+}

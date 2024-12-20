@@ -3,7 +3,7 @@ import { useMUD } from "./MUDContext";
 
 export const useKeyboardMovement = () => {
   const {
-    systemCalls: { moveBy , wallExists},
+    systemCalls: { moveBy },
   } = useMUD();
 
   // const walls = [
@@ -60,12 +60,12 @@ export const useKeyboardMovement = () => {
       if (e.key === "d") {
         moveBy(0, 0, 1);
       }
-      if (e.key === "t") {
-        moveBy(0, 1, 0);
-      }
-      if (e.key === "g") {
-        moveBy(0, -1, 0);
-      }
+      // if (e.key === "t") {
+      //   moveBy(0, 1, 0);
+      // }
+      // if (e.key === "g") {
+      //   moveBy(0, -1, 0);
+      // }
     };
 
     window.addEventListener("keydown", listener);

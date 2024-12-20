@@ -3,9 +3,10 @@
  * for changes in the World state (using the System contracts).
  */
 
-import { getComponentValue } from "@latticexyz/recs";
+import { defineEnterSystem, getComponentValue } from "@latticexyz/recs";
 import { ClientComponents } from "./createClientComponents";
 import { SetupNetworkResult } from "./setupNetwork";
+import { world } from "./world";
 
 export type SystemCalls = ReturnType<typeof createSystemCalls>;
 
@@ -29,16 +30,30 @@ export function createSystemCalls(
    *   syncToRecs
    *   (https://github.com/latticexyz/mud/blob/main/templates/threejs/packages/client/src/mud/setupNetwork.ts#L75-L81).
    */
-  { worldContract, waitForTransaction, playerEntity }: SetupNetworkResult,
-  { Position, Wall }: ClientComponents,
+  { worldSend, worldContract, waitForTransaction, playerEntity }: SetupNetworkResult,
+  { Position }: ClientComponents,
 ) {
-  const moveTo = async (x: number, y: number, z: number) => {
 
+  const spawn = (params = { x: -3, y: -3, z: -3 }) => {
+    const { x, y, z } = params;
+
+    // Create or update player entity's position
+    Position.set(playerEntity, [ x, y, z ]);
+
+    // Optionally, you could handle additional initialization logic here
+    console.log(`Player spawned at position: (${x}, ${y}, ${z})`);
+
+    return Position;
+  };
+
+  const moveTo = async (x: number, y: number, z: number) => {
 
     /*
      * Because MoveSystem is in the root namespace, .move can be called directly
      * on the World contract.
      */
+
+
     const tx = await worldContract.write.app__move([x, y, z]);
     await waitForTransaction(tx);
   };
@@ -57,5 +72,6 @@ export function createSystemCalls(
   return {
     moveTo,
     moveBy,
+    spawn,
   };
 }
