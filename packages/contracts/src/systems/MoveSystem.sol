@@ -28,12 +28,12 @@ contract MoveSystem is System {
   }
 
   
-  function collect(uint32 points) public {
+  function collect(int256 points) public {
     
     bytes32 entityId = bytes32(uint256(uint160((_msgSender()))));
 
-    uint32 currentScore = Score.get(entityId);
-    uint32 newScore = currentScore + points;
+    int256 currentScore = Score.get(entityId);
+    int256 newScore = currentScore + points;
 
     Score.set(entityId, newScore);
 

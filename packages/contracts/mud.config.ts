@@ -15,7 +15,7 @@ export default defineWorld({
     Score: {
       schema: {
         id: "bytes32",
-        points: "uint32",
+        points: "int256",
       },
       key: ["id"],
     },

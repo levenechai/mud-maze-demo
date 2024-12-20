@@ -14,44 +14,74 @@ const headerStyle = { backgroundColor: "black", color: "white" };
 const cellStyle = { padding: 20 };
 
 const walls = [
-  { id: 1, position: [9, 2, 1.5], size: [4.5, 4, 0.5], colour: "#F5F5DC" },     // 1A
-  { id: 2, position: [7, 2, 5], size: [0.5, 4, 7], colour: "#F5F5DC" },         // 1B
-  { id: 3, position: [5.5, 2, 8.5], size: [3.5, 4, 0.5], colour: "#F5F5DC" },   // 1C
+  { id: 1, position: [9, 2, 2], size: [4, 4, 1], colour: "#F5F5DC" },     // 1A
+  { id: 2, position: [7, 2, 5], size: [1, 4, 7], colour: "#F5F5DC" },         // 1B
+  { id: 3, position: [6, 2, 8], size: [3, 4, 1], colour: "#F5F5DC" },   // 1C
 
-  { id: 4, position: [7.5, 2, -1], size: [5, 4, 0.5], colour: "#F5F5DC"},       // 2A
-  { id: 5, position: [5, 2, -5.5], size: [0.5, 4, 9.5], colour: "#F5F5DC"},     // 2B
-  { id: 7, position: [3.5, 2, 1.5], size: [3.5, 4, 0.5], colour: "#F5F5DC" },   // 2C
-  { id: 8, position: [5, 2, 4], size: [0.5, 4, 5], colour: "#F5F5DC" },         // 2D
-  { id: 6, position: [2, 2, -1.5], size: [0.5, 4, 6], colour: "#F5F5DC" },        // 2E
-  { id: 9, position: [3.5, 2, -4.5], size: [3.5, 4, 0.5], colour: "#F5F5DC" }, // 2F
+  { id: 4, position: [7.5, 2, -1], size: [5, 4, 1], colour: "#F5F5DC"},       // 2A
+  { id: 5, position: [5, 2, -5], size: [1, 4, 9], colour: "#F5F5DC"},     // 2B
+  { id: 7, position: [3, 2, 2], size: [3, 4, 1], colour: "#F5F5DC" },   // 2C
+  { id: 8, position: [5, 2, 4], size: [1, 4, 5], colour: "#F5F5DC" },         // 2D
+  { id: 6, position: [2, 2, -1.5], size: [1, 4, 6], colour: "#F5F5DC" },        // 2E
+  { id: 9, position: [4, 2, -4], size: [3, 4, 1], colour: "#F5F5DC" }, // 2F
 
-  { id: 10, position: [2.5, 2, 7], size: [0.5, 4, 6], colour: "#F5F5DC" },       // 3A
-  { id: 11, position: [0, 2, 7], size: [5, 4, 0.5], colour: "#F5F5DC"},         // 3B
+  { id: 10, position: [2, 2, 6], size: [1, 4, 5], colour: "#F5F5DC" },       // 3A
+  { id: 11, position: [0, 2, 7], size: [4, 4, 1], colour: "#F5F5DC"},         // 3B
 
-  { id: 12, position: [-1, 2, -4], size: [0.5, 4, 7], colour: "#F5F5DC"},    // 4A
-  { id: 13, position: [-1, 2, -7.5], size: [6, 4, 0.5], colour: "#F5F5DC"},    // 4B
+  { id: 12, position: [-1, 2, -4], size: [1, 4, 7], colour: "#F5F5DC"},    // 4A
+  { id: 13, position: [-1, 2, -7], size: [6, 4, 1], colour: "#F5F5DC"},    // 4B
 
-  { id: 14, position: [-5, 2, -5], size: [4, 4, 0.5], colour: "#F5F5DC"},    // 10A
-  { id: 15, position: [-7, 2, -6], size: [0.5, 4, 8], colour: "#F5F5DC"},    // 10B
+  { id: 14, position: [-5, 2, -5], size: [4, 4, 1], colour: "#F5F5DC"},    // 10A
+  { id: 15, position: [-7, 2, -6], size: [1, 4, 8], colour: "#F5F5DC"},    // 10B
 
+  { id: 16, position: [-1, 2, 3], size: [1, 4, 4], colour: "#F5F5DC"},    // 5A
+  { id: 17, position: [-3, 2, 3], size: [3, 4, 1], colour: "#F5F5DC"},    // 5B
+  { id: 18, position: [-4, 2, 2], size: [1, 4, 7], colour: "#F5F5DC"},  // 5C
 
-  { id: 16, position: [-1, 2, 3], size: [0.5, 4, 4], colour: "#F5F5DC"},    // 5A
-  { id: 17, position: [-2.5, 2, 5], size: [3.5, 4, 0.5], colour: "#F5F5DC"},    // 5B
-  { id: 18, position: [-4, 2, 1.5], size: [0.5, 4, 7.5], colour: "#F5F5DC"},  // 5C
+  { id: 19, position: [-7, 2, 3], size: [1, 4, 5], colour: "#F5F5DC"},  // 7A
+  { id: 20, position: [-8, 2, 5], size: [3, 4, 1], colour: "#F5F5DC"},      // 7B
 
-  { id: 19, position: [-7, 2, 2.5], size: [0.5, 4, 5.5], colour: "#F5F5DC"},  // 7A
-  { id: 20, position: [-8.5, 2, 5], size: [3, 4, 0.5], colour: "#F5F5DC"},      // 7B
+  { id: 21, position: [-4, 2, 8], size: [1, 4, 3], colour: "#F5F5DC"},    // 8A
+  { id: 22, position: [-5.5, 2, 7], size: [3.5, 4, 1], colour: "#F5F5DC"},  // 8B
+  { id: 23, position: [-7, 2, 8], size: [1, 4, 3], colour: "#F5F5DC"},    // 8C
 
-  { id: 21, position: [-4, 2, 8.5], size: [0.5, 4, 3], colour: "#F5F5DC"},    // 8A
-  { id: 22, position: [-5.5, 2, 7], size: [3.5, 4, 0.5], colour: "#F5F5DC"},  // 8B
-  { id: 23, position: [-7, 2, 8.5], size: [0.5, 4, 3], colour: "#F5F5DC"},    // 8C
-
-  { id: 24, position: [-10, 2, 0], size: [0.5, 8, 20], colour: "#54473F"},    // 9A
-  { id: 25, position: [10, 2, 0], size: [0.5, 8, 20], colour: "#54473F"},     // 9B
-  { id: 26, position: [0, 2, -10], size: [20, 8, 0.5], colour: "#54473F"},     // 9C
-  { id: 27, position: [0, 2, 10], size: [20, 8, 0.5], colour: "#54473F"},     // 9D
+  { id: 24, position: [-10, 2, 0], size: [1, 8, 21], colour: "#54473F"},    // 9A
+  { id: 25, position: [10, 2, 0], size: [1, 8, 21], colour: "#54473F"},     // 9B
+  { id: 26, position: [0, 2, -10], size: [21, 8, 1], colour: "#54473F"},     // 9C
+  { id: 27, position: [0, 2, 10], size: [21, 8, 1], colour: "#54473F"},     // 9D
 
 ];
+console.log("Walls Data:", walls);
+
+// Helper function to generate all coordinates occupied by a wall
+const generateWallCoordinates = (wall) => {
+  const [wallX, , wallZ] = wall.position; // Extract wall center positions
+  const [wallWidth, , wallDepth] = wall.size; // Extract wall dimensions
+
+  const occupiedCoordinates = [];
+
+  // Define the start and end ranges for X and Z based on the wall's position and size
+  const startX = wallX - Math.floor(wallWidth / 2);
+  const endX = wallX + Math.floor(wallWidth / 2);
+  const startZ = wallZ - Math.floor(wallDepth / 2);
+  const endZ = wallZ + Math.floor(wallDepth / 2);
+
+  // Generate all integer coordinates within the range
+  for (let x = startX; x <= endX; x++) {
+    for (let z = startZ; z <= endZ; z++) {
+      occupiedCoordinates.push(`${x},${z}`);
+    }
+  }
+
+  return occupiedCoordinates;
+};
+
+// Precompute all wall coordinates and store them in a Set for fast lookup
+const occupiedWallCoordinates = new Set(
+  walls.flatMap((wall) => generateWallCoordinates(wall))
+);
+console.log("Occupied Wall Coordinates:", occupiedWallCoordinates);
+
 
 const collectables = [
   { id: 1, position: [2, 2, 3] },
@@ -64,6 +94,8 @@ const collectables = [
   { id: 8, position: [4, 2, -8] },
   { id: 9, position: [-6, 2, -7] },
   { id: 10, position: [-9, 2, -6] },
+  { id: 11, position: [-9, 2, 6] },
+  { id: 12, position: [-3, 2, 2] },
 ];
 
 const goal = [
@@ -112,7 +144,7 @@ const Player = (props: ThreeElements["mesh"] & { color: Color }) => {
   return (
     <>
       <mesh {...props}>
-        <boxGeometry args={[0.5, 6, 0.5]} />
+        <boxGeometry args={[1, 6, 1]} />
         <meshStandardMaterial color={props.color} emissive="#73EC8B"/>
       </mesh>
     </>
@@ -132,12 +164,23 @@ const Scene = () => {
 
 
   React.useEffect(() => {
-    console.log("Walls Data:", walls);
     console.log("Player Position:", playerPosition);
+    console.log("Occupied Wall Coordinates:", [...occupiedWallCoordinates]);
 
     if (!playerPosition) return;
     
-     // Check for collisions
+    // Check for collisions with walls
+    for (const wallCoordinate of occupiedWallCoordinates) {
+      const [x, z] = wallCoordinate.split(",").map(Number);
+      if (playerPosition.x === x && playerPosition.z === z) {
+        console.log(`Collision detected at (${x}, ${z})`);
+        collectPoints(-25); // Deduct points for crossing a wall
+        break;
+      }
+    }
+
+
+     // Check for collisions with collectables
     for (let i = collectables.length - 1; i >= 0; i--) {
       const item = collectables[i];
       if (
@@ -192,8 +235,8 @@ const Scene = () => {
       camera.position.set(-5, 15, 5);
     }
     camera.rotation.order = "YXZ";
-    camera.rotation.y = -Math.PI / 4;
-    camera.rotation.x = Math.atan(-1 / Math.sqrt(0.2));
+    camera.rotation.y = -Math.PI / 5;
+    camera.rotation.x = Math.atan(-1 / Math.sqrt(0.3));
   });
 
   useThree(({ camera }) => {
@@ -224,8 +267,10 @@ const styles = { height: "100vh" };
 const Directions = () => {
   return (
     <>
-      <p> Welcome to the maze! Press <b>W</b>, <b>A</b>, <b>S</b> or <b>D</b> to start moving around. </p>
-      <p>Earn points by collecting the balls around you and you'll win by finding the yellow ball! :)</p>
+      <p> Welcome to the maze! Press <b>W</b>, <b>A</b>, <b>S</b> or <b>D</b> to start moving around. <br/>
+      Earn points by collecting the balls around you. Avoid touching the walls!<br/>
+      Find your way to the yellow ball :)
+      </p>
     </>
   );
 };
@@ -237,7 +282,7 @@ const PlayerInfo = () => {
   } = useMUD();
 
   const playerPosition = useComponentValue(Position, playerEntity);
-  const playerScore = useComponentValue(Score, playerEntity)?.points || 0;
+  const playerScore = Number(useComponentValue(Score, playerEntity)?.points ?? 0);
 
   if (!playerPosition) {
 

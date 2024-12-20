@@ -21,12 +21,12 @@ library Score {
   ResourceId constant _tableId = ResourceId.wrap(0x7462617070000000000000000000000053636f72650000000000000000000000);
 
   FieldLayout constant _fieldLayout =
-    FieldLayout.wrap(0x0004010004000000000000000000000000000000000000000000000000000000);
+    FieldLayout.wrap(0x0020010020000000000000000000000000000000000000000000000000000000);
 
   // Hex-encoded key schema of (bytes32)
   Schema constant _keySchema = Schema.wrap(0x002001005f000000000000000000000000000000000000000000000000000000);
-  // Hex-encoded value schema of (uint32)
-  Schema constant _valueSchema = Schema.wrap(0x0004010003000000000000000000000000000000000000000000000000000000);
+  // Hex-encoded value schema of (int256)
+  Schema constant _valueSchema = Schema.wrap(0x002001003f000000000000000000000000000000000000000000000000000000);
 
   /**
    * @notice Get the table's key field names.
@@ -63,51 +63,51 @@ library Score {
   /**
    * @notice Get points.
    */
-  function getPoints(bytes32 id) internal view returns (uint32 points) {
+  function getPoints(bytes32 id) internal view returns (int256 points) {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
     bytes32 _blob = StoreSwitch.getStaticField(_tableId, _keyTuple, 0, _fieldLayout);
-    return (uint32(bytes4(_blob)));
+    return (int256(uint256(bytes32(_blob))));
   }
 
   /**
    * @notice Get points.
    */
-  function _getPoints(bytes32 id) internal view returns (uint32 points) {
+  function _getPoints(bytes32 id) internal view returns (int256 points) {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
     bytes32 _blob = StoreCore.getStaticField(_tableId, _keyTuple, 0, _fieldLayout);
-    return (uint32(bytes4(_blob)));
+    return (int256(uint256(bytes32(_blob))));
   }
 
   /**
    * @notice Get points.
    */
-  function get(bytes32 id) internal view returns (uint32 points) {
+  function get(bytes32 id) internal view returns (int256 points) {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
     bytes32 _blob = StoreSwitch.getStaticField(_tableId, _keyTuple, 0, _fieldLayout);
-    return (uint32(bytes4(_blob)));
+    return (int256(uint256(bytes32(_blob))));
   }
 
   /**
    * @notice Get points.
    */
-  function _get(bytes32 id) internal view returns (uint32 points) {
+  function _get(bytes32 id) internal view returns (int256 points) {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
     bytes32 _blob = StoreCore.getStaticField(_tableId, _keyTuple, 0, _fieldLayout);
-    return (uint32(bytes4(_blob)));
+    return (int256(uint256(bytes32(_blob))));
   }
 
   /**
    * @notice Set points.
    */
-  function setPoints(bytes32 id, uint32 points) internal {
+  function setPoints(bytes32 id, int256 points) internal {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
@@ -117,7 +117,7 @@ library Score {
   /**
    * @notice Set points.
    */
-  function _setPoints(bytes32 id, uint32 points) internal {
+  function _setPoints(bytes32 id, int256 points) internal {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
@@ -127,7 +127,7 @@ library Score {
   /**
    * @notice Set points.
    */
-  function set(bytes32 id, uint32 points) internal {
+  function set(bytes32 id, int256 points) internal {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
@@ -137,7 +137,7 @@ library Score {
   /**
    * @notice Set points.
    */
-  function _set(bytes32 id, uint32 points) internal {
+  function _set(bytes32 id, int256 points) internal {
     bytes32[] memory _keyTuple = new bytes32[](1);
     _keyTuple[0] = id;
 
@@ -168,7 +168,7 @@ library Score {
    * @notice Tightly pack static (fixed length) data using this table's schema.
    * @return The static data, encoded into a sequence of bytes.
    */
-  function encodeStatic(uint32 points) internal pure returns (bytes memory) {
+  function encodeStatic(int256 points) internal pure returns (bytes memory) {
     return abi.encodePacked(points);
   }
 
@@ -178,7 +178,7 @@ library Score {
    * @return The lengths of the dynamic fields (packed into a single bytes32 value).
    * @return The dynamic (variable length) data, encoded into a sequence of bytes.
    */
-  function encode(uint32 points) internal pure returns (bytes memory, EncodedLengths, bytes memory) {
+  function encode(int256 points) internal pure returns (bytes memory, EncodedLengths, bytes memory) {
     bytes memory _staticData = encodeStatic(points);
 
     EncodedLengths _encodedLengths;
