@@ -8,7 +8,8 @@
     "build": "vite build",
     "dev": "wait-port localhost:8545 && vite",
     "preview": "vite preview",
-    "test": "tsc --noEmit"
+    "test": "tsc --noEmit",
+    "install-deps": "npm install && npm install -g pnpm && npm install foundry --save"
   },
   "dependencies": {
     "@latticexyz/common": "2.2.14",
