@@ -10,4 +10,6 @@ pragma solidity >=0.8.24;
  */
 interface IMoveSystem {
   function app__move(int32 x, int32 y, int32 z) external;
+
+  function app__collect(uint32 points) external;
 }

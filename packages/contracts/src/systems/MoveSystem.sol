@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.24;
 import { System } from "@latticexyz/world/src/System.sol";
-import { Position, PositionData } from "../codegen/index.sol";
+import { Position, PositionData, Score } from "../codegen/index.sol";
 
 function distance(PositionData memory a, PositionData memory b) pure returns (int32) {
   int32 deltaX = a.x > b.x ? a.x - b.x : b.x - a.x;
@@ -25,5 +25,17 @@ contract MoveSystem is System {
 
     // Update player's position
     Position.set(entityId, newPosition);
+  }
+
+  
+  function collect(uint32 points) public {
+    
+    bytes32 entityId = bytes32(uint256(uint160((_msgSender()))));
+
+    uint32 currentScore = Score.get(entityId);
+    uint32 newScore = currentScore + points;
+
+    Score.set(entityId, newScore);
+
   }
 }

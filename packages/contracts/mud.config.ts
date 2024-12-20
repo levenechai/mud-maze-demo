@@ -12,5 +12,12 @@ export default defineWorld({
       },
       key: ["id"],
     },
+    Score: {
+      schema: {
+        id: "bytes32",
+        points: "uint32",
+      },
+      key: ["id"],
+    },
   },
 });
