@@ -1,0 +1,87 @@
+{
+  "name": "mud-template-threejs",
+  "problems": [
+    "extraneous: @eslint-community/eslint-utils@4.4.1 /Users/levene/Projects/maze/threejs/node_modules/@eslint-community/eslint-utils",
+    "extraneous: @eslint-community/regexpp@4.12.1 /Users/levene/Projects/maze/threejs/node_modules/@eslint-community/regexpp",
+    "extraneous: @eslint/eslintrc@2.1.4 /Users/levene/Projects/maze/threejs/node_modules/@eslint/eslintrc",
+    "extraneous: @typescript-eslint/scope-manager@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/scope-manager",
+    "extraneous: @typescript-eslint/type-utils@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/type-utils",
+    "extraneous: @typescript-eslint/types@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/types",
+    "extraneous: @typescript-eslint/visitor-keys@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/visitor-keys",
+    "extraneous: prettier-plugin-solidity@1.3.1 /Users/levene/Projects/maze/threejs/node_modules/prettier-plugin-solidity"
+  ],
+  "dependencies": {
+    "@eslint-community/eslint-utils": {
+      "version": "4.4.1",
+      "resolved": "file:../.pnpm/@eslint-community+eslint-utils@4.4.1_eslint@8.57.0/node_modules/@eslint-community/eslint-utils",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @eslint-community/eslint-utils@4.4.1 /Users/levene/Projects/maze/threejs/node_modules/@eslint-community/eslint-utils"
+      ]
+    },
+    "@eslint-community/regexpp": {
+      "version": "4.12.1",
+      "resolved": "file:../.pnpm/@eslint-community+regexpp@4.12.1/node_modules/@eslint-community/regexpp",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @eslint-community/regexpp@4.12.1 /Users/levene/Projects/maze/threejs/node_modules/@eslint-community/regexpp"
+      ]
+    },
+    "@eslint/eslintrc": {
+      "version": "2.1.4",
+      "resolved": "file:../.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @eslint/eslintrc@2.1.4 /Users/levene/Projects/maze/threejs/node_modules/@eslint/eslintrc"
+      ]
+    },
+    "@typescript-eslint/scope-manager": {
+      "version": "7.1.1",
+      "resolved": "file:../.pnpm/@typescript-eslint+scope-manager@7.1.1/node_modules/@typescript-eslint/scope-manager",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @typescript-eslint/scope-manager@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/scope-manager"
+      ]
+    },
+    "@typescript-eslint/type-utils": {
+      "version": "7.1.1",
+      "resolved": "file:../.pnpm/@typescript-eslint+type-utils@7.1.1_eslint@8.57.0_typescript@5.4.2/node_modules/@typescript-eslint/type-utils",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @typescript-eslint/type-utils@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/type-utils"
+      ]
+    },
+    "@typescript-eslint/types": {
+      "version": "7.1.1",
+      "resolved": "file:../.pnpm/@typescript-eslint+types@7.1.1/node_modules/@typescript-eslint/types",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @typescript-eslint/types@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/types"
+      ]
+    },
+    "@typescript-eslint/visitor-keys": {
+      "version": "7.1.1",
+      "resolved": "file:../.pnpm/@typescript-eslint+visitor-keys@7.1.1/node_modules/@typescript-eslint/visitor-keys",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: @typescript-eslint/visitor-keys@7.1.1 /Users/levene/Projects/maze/threejs/node_modules/@typescript-eslint/visitor-keys"
+      ]
+    },
+    "prettier-plugin-solidity": {
+      "version": "1.3.1",
+      "resolved": "file:.pnpm/prettier-plugin-solidity@1.3.1_prettier@3.2.5/node_modules/prettier-plugin-solidity",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: prettier-plugin-solidity@1.3.1 /Users/levene/Projects/maze/threejs/node_modules/prettier-plugin-solidity"
+      ]
+    }
+  }
+}

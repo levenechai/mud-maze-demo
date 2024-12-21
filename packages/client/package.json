@@ -9,7 +9,7 @@
     "dev": "wait-port localhost:8545 && vite",
     "preview": "vite preview",
     "test": "tsc --noEmit",
-    "preinstall": "curl -L https://foundry.paradigm.xyz | bash && export PATH=$PATH:$HOME/.foundry/bin && foundryup"
+    "preinstall": "curl -L https://foundry.paradigm.xyz | bash && export PATH=$HOME/.foundry/bin:$PATH && foundryup || true"
   },
   "dependencies": {
     "@latticexyz/common": "2.2.14",
