@@ -7,7 +7,7 @@
     "dev:client": "pnpm --filter 'client' run dev",
     "dev:contracts": "pnpm --filter 'contracts' dev",
     "prepare": "curl -L https://foundry.paradigm.xyz | bash && export PATH=$HOME/.foundry/bin:$PATH && foundryup",
-    "build": "export PATH=$HOME/.foundry/bin:$PATH && mud build && mud build -- config ./packages/contracts/mud.config.ts",
+    "build": "export PATH=$HOME/.foundry/bin:$PATH && mud build && mud build --config ./packages/contracts/mud.config.ts",
     "test": "pnpm recursive run test"
   },
   "devDependencies": {
