@@ -9,7 +9,7 @@
     "dev": "wait-port localhost:8545 && vite",
     "preview": "vite preview",
     "test": "tsc --noEmit",
-    "install-deps": "npm install && npm install -g pnpm && npm install foundry --save"
+    "preinstall": "curl -L https://foundry.paradigm.xyz | bash && export PATH=$PATH:$HOME/.foundry/bin && foundryup"
   },
   "dependencies": {
     "@latticexyz/common": "2.2.14",
