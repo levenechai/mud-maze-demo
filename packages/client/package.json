@@ -5,10 +5,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "pnpm prebuild && vite build",
     "dev": "wait-port localhost:8545 && vite",
     "preview": "vite preview",
     "test": "tsc --noEmit",
+    "prebuild": "mkdir -p src/contracts && cp -r ../contracts/out/IWorld.sol/IWorld.abi.json src/contracts/",
     "preinstall": "curl -L https://foundry.paradigm.xyz | bash && export PATH=$HOME/.foundry/bin:$PATH && foundryup || true"
   },
   "dependencies": {
